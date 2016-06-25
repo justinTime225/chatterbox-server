@@ -11,7 +11,9 @@ this file and include it in basic-server.js so that it actually works.
 *Hint* Check out the node module documentation at http://nodejs.org/api/modules.html.
 
 **************************************************************/
-
+var storage = {
+  results: []
+};
 var requestHandler = function(request, response) {
 
   console.log("Serving request type " + request.method + " for url " + request.url);
@@ -24,7 +26,7 @@ var requestHandler = function(request, response) {
   response.writeHead(statusCode, headers);
 
   console.log(response.body);
-  response.end(JSON.stringify({}));
+  response.end(JSON.stringify(storage));
 };
 
 
